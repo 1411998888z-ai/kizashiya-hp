@@ -350,3 +350,29 @@ header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.
 
 /* 代表紹介の本文内は社名も本文と同じゴシックに統一 */
 .lead-grid .corp{font-family:inherit;font-feature-settings:normal}
+
+/* === ファーストビューのインパクト強化 === */
+/* 画面いっぱいに */
+.hero{min-height:100svh;display:flex;align-items:center;padding-top:clamp(110px,15vh,170px);padding-bottom:clamp(96px,13vh,150px)}
+.hero .hero-inner{width:100%}
+
+/* 見出し：大きく・行ごとにせり上がる */
+.hero h1.kv{font-size:clamp(40px,7.4vw,92px);line-height:1.16;letter-spacing:.01em;margin:20px 0 22px;animation:none}
+.hero h1.kv .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1.kv .ln>span{display:block;transform:translateY(116%);animation:lineUp 1s cubic-bezier(.2,.8,.2,1) both}
+.hero h1.kv .ln:nth-child(1)>span{animation-delay:.12s}
+.hero h1.kv .ln:nth-child(2)>span{animation-delay:.30s}
+@keyframes lineUp{to{transform:none}}
+
+/* キーワードのグラデをゆっくり揺らす */
+.hero h1 .grad{background:linear-gradient(100deg,#ff7a1e 0%,#ff5e2c 38%,#ffab3d 70%,#ff7a1e 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shimmer 6s ease-in-out infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* 円相：より大きく・よりドラマチックに登場 */
+.hero .enso{width:min(760px,62vw);opacity:.94}
+@keyframes ensoIn{0%{opacity:0;transform:translateY(-50%) rotate(-26deg) scale(.72)}70%{opacity:.94;transform:translateY(-50%) rotate(3deg) scale(1.03)}100%{opacity:.94;transform:translateY(-50%) rotate(0) scale(1)}}
+
+@media(prefers-reduced-motion:reduce){
+  .hero h1.kv .ln>span{transform:none;animation:none}
+  .hero h1 .grad{animation:none}
+}
