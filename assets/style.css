@@ -398,3 +398,17 @@ header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.
 @media(prefers-reduced-motion:reduce){
   .hero .enso-wrap>.enso{-webkit-mask:none;mask:none;animation:none}
 }
+
+/* === 円相：筆で一気に描くSVG演出（墨の飛沫→シュッと開いた円） === */
+.hero .enso-wrap>.enso-svg{width:100%;height:auto;overflow:visible;opacity:.97;filter:drop-shadow(0 14px 44px rgba(216,60,21,.20));animation:ensoFloat 9s ease-in-out 2.4s infinite}
+.enso-splat{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:ensoSplat .32s cubic-bezier(.2,1.5,.4,1) both}
+.enso-stroke{stroke-dasharray:1;stroke-dashoffset:1;animation:ensoWrite 1.45s cubic-bezier(.15,.75,.25,1) .2s both}
+@keyframes ensoSplat{0%{transform:scale(0)}68%{transform:scale(1.18)}100%{transform:scale(1)}}
+@keyframes ensoWrite{to{stroke-dashoffset:0}}
+@keyframes ensoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:860px){.hero .enso-wrap>.enso-svg{opacity:.55}}
+@media(prefers-reduced-motion:reduce){
+  .enso-splat{transform:none;animation:none}
+  .enso-stroke{stroke-dashoffset:0;animation:none}
+  .hero .enso-wrap>.enso-svg{animation:none}
+}
