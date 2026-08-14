@@ -376,3 +376,25 @@ header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.
   .hero h1.kv .ln>span{transform:none;animation:none}
   .hero h1 .grad{animation:none}
 }
+
+/* === 円相を筆で書き上げる演出（和） === */
+@property --ensoA{syntax:"<angle>";inherits:false;initial-value:0deg}
+.hero .enso-wrap{position:absolute;top:50%;right:-6%;width:min(760px,62vw);transform:translateY(-50%);z-index:0;pointer-events:none;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.hero .enso-wrap>.enso{position:static;width:100%;height:auto;opacity:.94;transform:none;filter:drop-shadow(0 12px 40px rgba(255,110,40,.24))}
+@supports ((mask:conic-gradient(#000,#000)) or (-webkit-mask:conic-gradient(#000,#000))){
+  .hero .enso-wrap>.enso{
+    -webkit-mask:conic-gradient(from -105deg,#000 var(--ensoA),transparent 0);
+    mask:conic-gradient(from -105deg,#000 var(--ensoA),transparent 0);
+    animation:ensoDraw 2.6s cubic-bezier(.45,.05,.2,1) .3s both, ensoBreath2 9s ease-in-out 3s infinite;
+  }
+  @keyframes ensoDraw{from{--ensoA:0deg}to{--ensoA:360deg}}
+}
+@keyframes ensoBreath2{0%,100%{transform:scale(1)}50%{transform:scale(1.028)}}
+
+@media(max-width:860px){
+  .hero .enso-wrap{right:-24%;top:8%;transform:none;width:96vw}
+  .hero .enso-wrap>.enso{opacity:.42}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .enso-wrap>.enso{-webkit-mask:none;mask:none;animation:none}
+}
