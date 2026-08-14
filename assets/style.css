@@ -283,3 +283,31 @@ footer{background:#080808;color:#cfcfca;padding:clamp(50px,7vw,80px) 0 40px}
   .sec-head .en-huge,.sec-head .en-mid{transform:none;opacity:1;transition:none}
   .marquee-track,.rings{animation:none}
 }
+
+/* === refined motion (crafted feel) === */
+html{scroll-behavior:smooth}
+header{transition:box-shadow .3s ease,background .3s ease}
+header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.04),0 12px 30px rgba(0,0,0,.05)}
+
+@keyframes riseIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero .en-sub{animation:riseIn .8s .05s both cubic-bezier(.2,.7,.2,1)}
+.hero h1{animation:riseIn .9s .18s both cubic-bezier(.2,.7,.2,1)}
+.hero .lead{animation:riseIn .9s .34s both cubic-bezier(.2,.7,.2,1)}
+.hero-cta{animation:riseIn .9s .5s both cubic-bezier(.2,.7,.2,1)}
+
+.stagger>*{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.stagger.in>*{opacity:1;transform:none}
+
+.cta-solid,.btn,.menu a.btn{transition:opacity .2s,transform .25s ease,box-shadow .25s ease}
+.cta-solid:hover,.btn:hover,.menu a.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.14)}
+.cta-ghost{transition:background .25s ease,color .25s ease,transform .25s ease}
+.cta-ghost:hover{background:var(--ink);color:var(--invert-ink);transform:translateY(-2px)}
+.svc-card:hover .svc-logo img{opacity:1}
+.arrow-link:hover .circle{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero .en-sub,.hero h1,.hero .lead,.hero-cta{animation:none}
+  .stagger>*{opacity:1;transform:none;transition:none}
+  .cta-solid:hover,.btn:hover,.menu a.btn:hover,.cta-ghost:hover{transform:none}
+}
