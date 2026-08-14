@@ -431,3 +431,10 @@ header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.
 @keyframes ensoFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @media(max-width:860px){.hero .enso-wrap>.enso{opacity:.5}}
 @media(prefers-reduced-motion:reduce){.hero .enso-wrap>.enso{-webkit-mask:none;mask:none;animation:none}}
+
+/* === ヒーロー背景の“縁”を消す（貼り付け感の解消） === */
+.hero{background:linear-gradient(180deg,#fffaf4 0%,#fffdfb 55%,#ffffff 100%)}
+.hero-bg span{filter:blur(85px);border-radius:50%}
+.hero-bg span:nth-child(1){background:radial-gradient(circle,rgba(255,140,60,.55) 0%,rgba(255,110,50,0) 66%);opacity:.55}
+.hero-bg span:nth-child(2){background:radial-gradient(circle,rgba(255,168,72,.46) 0%,rgba(255,140,60,0) 66%);opacity:.5}
+.hero-bg span:nth-child(3){background:radial-gradient(circle,rgba(255,190,95,.4) 0%,rgba(255,170,80,0) 68%);opacity:.5}
