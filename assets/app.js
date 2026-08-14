@@ -34,18 +34,3 @@ document.querySelectorAll('.reveal,.sec-head,.stagger').forEach(function(el){
 // ヘッダー：スクロールでそっと陰影
 var hd=document.querySelector('header');
 if(hd){var sc=function(){hd.classList.toggle('scrolled',window.scrollY>8)};sc();window.addEventListener('scroll',sc,{passive:true});}
-
-// ヒーロー：カーソルに反応する背景＋円相（PC・動きOK設定のみ）
-var heroEl=document.querySelector('.hero'),heroBg=document.querySelector('.hero-bg'),ensoWrap=document.querySelector('.enso-wrap');
-if(heroEl&&matchMedia('(hover:hover)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
-  heroEl.addEventListener('mousemove',function(e){
-    var r=heroEl.getBoundingClientRect();
-    var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-    if(heroBg)heroBg.style.transform='translate('+(x*-36).toFixed(1)+'px,'+(y*-26).toFixed(1)+'px)';
-    if(ensoWrap)ensoWrap.style.transform='translateY(-50%) translate('+(x*34).toFixed(1)+'px,'+(y*24).toFixed(1)+'px)';
-  });
-  heroEl.addEventListener('mouseleave',function(){
-    if(heroBg)heroBg.style.transform='';
-    if(ensoWrap)ensoWrap.style.transform='translateY(-50%)';
-  });
-}

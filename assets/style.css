@@ -412,3 +412,7 @@ header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.
   .enso-stroke{stroke-dashoffset:0;animation:none}
   .hero .enso-wrap>.enso-svg{animation:none}
 }
+
+/* === ヒーロー見出しを明朝体でスタイリッシュに === */
+.hero h1.kv{font-family:var(--mincho);font-weight:600;letter-spacing:.06em;font-feature-settings:"palt"}
+.hero h1.kv .grad{font-family:var(--mincho)}
