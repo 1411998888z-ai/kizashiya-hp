@@ -416,3 +416,18 @@ header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.
 /* === ヒーロー見出しを明朝体でスタイリッシュに === */
 .hero h1.kv{font-family:var(--mincho);font-weight:600;letter-spacing:.06em;font-feature-settings:"palt"}
 .hero h1.kv .grad{font-family:var(--mincho)}
+
+/* === 円相：元画像を筆で描く（逆回り／完成形は元の円相そのもの） === */
+@property --ed{syntax:"<angle>";inherits:false;initial-value:372deg}
+.hero .enso-wrap>.enso{position:static;width:100%;height:auto;opacity:1;transform:none;filter:drop-shadow(0 14px 44px rgba(216,60,21,.16));animation:ensoFloat2 9s ease-in-out 2.7s infinite}
+@supports ((-webkit-mask:conic-gradient(#000,#000)) or (mask:conic-gradient(#000,#000))){
+  .hero .enso-wrap>.enso{
+    -webkit-mask:conic-gradient(from -25deg,transparent calc(360deg - var(--ed)),#000 calc(360deg - var(--ed) + 8deg));
+    mask:conic-gradient(from -25deg,transparent calc(360deg - var(--ed)),#000 calc(360deg - var(--ed) + 8deg));
+    animation:ensoDraw2 2.1s cubic-bezier(.3,.6,.25,1) .2s both, ensoFloat2 9s ease-in-out 2.7s infinite;
+  }
+  @keyframes ensoDraw2{from{--ed:0deg}to{--ed:372deg}}
+}
+@keyframes ensoFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:860px){.hero .enso-wrap>.enso{opacity:.5}}
+@media(prefers-reduced-motion:reduce){.hero .enso-wrap>.enso{-webkit-mask:none;mask:none;animation:none}}
