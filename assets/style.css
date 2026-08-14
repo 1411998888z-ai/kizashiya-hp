@@ -422,8 +422,8 @@ header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.
 .hero .enso-wrap>.enso{position:static;width:100%;height:auto;opacity:1;transform:none;filter:drop-shadow(0 14px 44px rgba(216,60,21,.16));animation:ensoFloat2 9s ease-in-out 2.7s infinite}
 @supports ((-webkit-mask:conic-gradient(#000,#000)) or (mask:conic-gradient(#000,#000))){
   .hero .enso-wrap>.enso{
-    -webkit-mask:conic-gradient(from -25deg,transparent calc(360deg - var(--ed)),#000 calc(360deg - var(--ed) + 8deg));
-    mask:conic-gradient(from -25deg,transparent calc(360deg - var(--ed)),#000 calc(360deg - var(--ed) + 8deg));
+    -webkit-mask:conic-gradient(from 120deg,transparent calc(360deg - var(--ed)),#000 calc(360deg - var(--ed) + 8deg));
+    mask:conic-gradient(from 120deg,transparent calc(360deg - var(--ed)),#000 calc(360deg - var(--ed) + 8deg));
     animation:ensoDraw2 2.1s cubic-bezier(.3,.6,.25,1) .2s both, ensoFloat2 9s ease-in-out 2.7s infinite;
   }
   @keyframes ensoDraw2{from{--ed:0deg}to{--ed:372deg}}
