@@ -311,3 +311,39 @@ header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.
   .stagger>*{opacity:1;transform:none;transition:none}
   .cta-solid:hover,.btn:hover,.menu a.btn:hover,.cta-ghost:hover{transform:none}
 }
+
+/* === hero: 華やかなファーストビュー === */
+.hero{background:
+  radial-gradient(120% 90% at 88% 8%, rgba(255,180,90,.20) 0%, rgba(255,180,90,0) 42%),
+  radial-gradient(90% 80% at 6% 100%, rgba(255,120,40,.10) 0%, rgba(255,120,40,0) 45%),
+  linear-gradient(180deg,#fffaf4 0%,#ffffff 62%)}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-bg span{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;will-change:transform}
+.hero-bg span:nth-child(1){width:44vw;height:44vw;top:-8%;right:2%;background:radial-gradient(circle,#ff8a3d,#ff5e2c);opacity:.28;animation:floatA 16s ease-in-out infinite}
+.hero-bg span:nth-child(2){width:30vw;height:30vw;bottom:-10%;left:-6%;background:radial-gradient(circle,#ffc24d,#ff8a3d);opacity:.20;animation:floatB 20s ease-in-out infinite}
+.hero-bg span:nth-child(3){width:22vw;height:22vw;top:38%;right:34%;background:radial-gradient(circle,#ffd27a,#ffae4d);opacity:.16;animation:floatA 24s ease-in-out infinite reverse}
+@keyframes floatA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-4%,5%) scale(1.08)}}
+@keyframes floatB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,-4%) scale(1.1)}}
+
+/* 円相：存在感アップ＋ゆらぎ＋発光 */
+.hero .enso{opacity:.92;filter:drop-shadow(0 12px 40px rgba(255,110,40,.28));animation:ensoIn 1.2s ease both,ensoBreath 9s ease-in-out 1.2s infinite}
+@keyframes ensoBreath{0%,100%{transform:translateY(-50%) scale(1)}50%{transform:translateY(-51%) scale(1.035)}}
+
+/* 見出しのグラデーション */
+.hero h1 .grad{background:linear-gradient(100deg,#ff7a1e 0%,#ff5e2c 45%,#ffa63d 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+/* スクロール誘導 */
+.scroll-cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--sans);font-size:10px;letter-spacing:.24em;color:var(--ink-2);opacity:.7}
+.scroll-cue i{width:1px;height:38px;background:linear-gradient(var(--ink-2),transparent);position:relative;overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;top:-40%;left:0;width:1px;height:40%;background:var(--ink);animation:cueRun 1.8s ease-in-out infinite}
+@keyframes cueRun{0%{top:-40%}60%,100%{top:100%}}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-bg span,.hero .enso{animation:none}
+  .scroll-cue i::after{animation:none}
+}
+
+@media(max-width:860px){.scroll-cue{display:none}}
+
+/* 円相の登場アニメを上書き（最終的に鮮やかに） */
+@keyframes ensoIn{from{opacity:0;transform:translateY(-50%) rotate(-10deg) scale(.9)}to{opacity:.92;transform:translateY(-50%) rotate(0) scale(1)}}
