@@ -347,3 +347,6 @@ header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 rgba(0,0,0,.
 
 /* 円相の登場アニメを上書き（最終的に鮮やかに） */
 @keyframes ensoIn{from{opacity:0;transform:translateY(-50%) rotate(-10deg) scale(.9)}to{opacity:.92;transform:translateY(-50%) rotate(0) scale(1)}}
+
+/* 代表紹介の本文内は社名も本文と同じゴシックに統一 */
+.lead-grid .corp{font-family:inherit;font-feature-settings:normal}
